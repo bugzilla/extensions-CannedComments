@@ -1,0 +1,38 @@
+[%# This Source Code Form is subject to the terms of the Mozilla Public
+  # License, v. 2.0. If a copy of the MPL was not distributed with this
+  # file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  #
+  # This Source Code Form is "Incompatible With Secondary Licenses", as
+  # defined by the Mozilla Public License, v. 2.0.
+  #%]
+
+<div id="canned_comments_container">
+  <div id="new_canned_container">
+    <input id="new_canned" name="new_canned" type="checkbox" 
+           onchange="newCanned(this);" value="1">
+    <label for="new_canned">Add above as new canned comment</label>
+    <div id="new_canned_summary_container" class="bz_default_hidden">
+      Summary:
+      <input id="new_canned_summary" name="new_canned_summary" 
+             value="" size="50">
+    </div>
+  </div>
+  [% IF canned_comments.size %]
+    <div id="old_canned_container">
+      <a href="page.cgi?id=canned_comments.html"
+         title="Show all canned comments">Canned Comments</a>:
+      <select id="old_canned" name="old_canned"
+              onchange="oldCanned(this);">
+        <option value="">---</option>
+        [% FOREACH c = canned_comments %]
+          <option value="[% c.id FILTER html %]">
+            [% c.summary FILTER html %]</option>
+        [% END %]
+      </select>
+      <span id="remove_old_canned_container" class="bz_default_hidden">
+        <input id="remove_old_canned" name="remove_old_canned" type="checkbox" value="1">
+        <label for="remove_old_canned">Remove</label>
+      </span>
+    </div>
+  [% END %]
+</div>

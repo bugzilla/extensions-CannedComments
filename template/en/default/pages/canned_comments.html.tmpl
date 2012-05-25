@@ -1,0 +1,26 @@
+[%# This Source Code Form is subject to the terms of the Mozilla Public
+  # License, v. 2.0. If a copy of the MPL was not distributed with this
+  # file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  #
+  # This Source Code Form is "Incompatible With Secondary Licenses", as
+  # defined by the Mozilla Public License, v. 2.0.
+  #%]
+
+[% PROCESS global/header.html.tmpl
+    title = "Canned Comments" 
+%]
+
+[% IF canned_comments.size %]
+  [% FOREACH c = canned_comments %]
+    <dt><strong>[% c.summary FILTER html %]</strong></dt>
+    <dd class="bz_comment">
+      <div class="bz_comment_text">
+        [% c.comment FILTER html %]
+      </div>
+    </dd>
+  [% END %]
+[% ELSE %]
+  No canned comments
+[% END %]
+
+[% PROCESS global/footer.html.tmpl %]

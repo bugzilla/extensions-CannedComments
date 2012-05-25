@@ -1,0 +1,8 @@
+This extension adds the ability for users to store 'canned' or saved
+comments for reuse without having to retype them each time. The UI 
+is displayed below the comment textarea on show_bug.cgi. Using the UI
+the user can designate a current comment as a new canned comment. Also
+the user can select a previous canned comment and it will be automatically
+inserted into the comment textarea if the user has javascript enabled.
+Without javascript it can still be used as the comment will be added
+on the backend.
